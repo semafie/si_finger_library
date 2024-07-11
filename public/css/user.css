@@ -1,0 +1,182 @@
+.haloss {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+   }
+   
+   .haloss.learn-more {
+    width: 12rem;
+    height: auto;
+   }
+   
+   .haloss.learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #C2E8FF;
+    border-radius: 1.625rem;
+   }
+   
+   .haloss.learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #808080;
+   }
+   
+   .haloss.learn-more .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+   }
+   
+   .haloss.learn-more .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #808080;
+    border-right: 0.125rem solid #808080;
+    transform: rotate(45deg);
+   }
+   
+   .haloss.learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #C2E8FF;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+   }
+   
+   .haloss:hover .circle {
+    width: 100%;
+   }
+   
+   .haloss:hover .circle .icon.arrow {
+    background: #808080;
+    transform: translate(1rem, 0);
+   }
+   
+   .haloss:hover .button-text {
+    color: #808080;
+   }
+
+   .btn {
+    position: relative;
+    font-size: 17px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1em 250px;
+    display: inline-block;
+    border-radius: 50px;
+    transition: all .3s;
+    border: none;
+    font-family: Arial, sans-serif;
+    font-weight: 600;
+    color: white;
+    background-color: #3498db;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+    box-shadow: none;
+  }
+  
+  .btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+  
+  .btn::after {
+    background-color: #2980b9;
+  }
+  
+  .btn:hover::after {
+    transform: scaleX(1.2) scaleY(1.4);
+    opacity: 0;
+  }
+
+  .formField {
+    margin: 10px;
+    position: relative;
+    width: 70%;
+  }
+  
+  .formField input {
+    padding: 10px 15px;
+    outline: none;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    color: #333;
+    font-size: 16px;
+    font-weight: 550;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 0 5px transparent;
+  }
+  
+  .formField input:hover,
+  .formField input:focus {
+    box-shadow: 0 0 0 2px #333;
+  }
+  
+  .formField span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 8px 15px;
+    color: #505050;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+  }
+  
+  .formField input:focus + span,
+  .formField input:valid + span {
+    transform: translateY(-32px) translateX(-5px) scale(0.95);
+    transition: 0.3s ease-in-out;
+    color: #ffffff;
+    
+  }
+  

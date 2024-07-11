@@ -1,7 +1,5 @@
-@extends('admin.layout.dashboard')
+@extends('admin.template.template-header')
 @section('content')
-    
-
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="row">
       <div class="col-lg-8 mb-4 order-0">
@@ -524,4 +522,24 @@
       <!--/ Transactions -->
     </div>
   </div>
+
+  <script>
+    @if(Session::has('success_message'))
+  
+    Swal.fire({
+      title: 'Berhasil',
+      text: 'Anda Berhasil Login',
+      icon: 'success',
+      confirmButtonText: 'Oke'
+    })
+    @elseif(Session::has('gagal_login'))
+  
+    Swal.fire({
+      title: 'Gagal',
+      text: 'Masukkan email dan password dengan benar',
+      icon: 'error',
+      confirmButtonText: 'Oke'
+    })
+    @endif
+    </script>
   @endsection

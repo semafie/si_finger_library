@@ -42,9 +42,19 @@
 
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      
+      {{-- DATATABLE --}}
+      <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+      <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+  
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.all.min.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/dashboard_admin.css') }}" />
   </head>
 
   <body>
@@ -73,7 +83,7 @@
 
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+              {{-- <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                 <div class="mb-2 mb-md-0">
                   ©
                   <script>
@@ -100,7 +110,7 @@
                     >Support</a
                   >
                 </div>
-              </div>
+              </div> --}}
             </footer>
             <!-- / Footer -->
 
@@ -117,12 +127,12 @@
     <!-- / Layout wrapper -->
 
     <div class="buy-now">
-      <a
+      {{-- <a
         href="https://themeselection.com/item/sneat-bootstrap-html-admin-template/"
         target="_blank"
         class="btn btn-danger btn-buy-now"
         >Upgrade to Pro</a
-      >
+      > --}}
     </div>
 
     <!-- Core JS -->
