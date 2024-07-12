@@ -48,43 +48,6 @@ class SubjectController extends Controller
         return redirect()->route('admin_matkul')->with(Session::flash('berhasil_hapus', true));
     }
 
+
     
-    public function tambahabsen(Request $request){
-
-        // dd($request->all());
-        $halo = [
-            'mata_pelajaran' => 'required',
-            // 'jenis_kelamin' => 'required',
-        ];
-
-        $validasi = Validator::make($request->all(), $halo);
-
-        // Jika validasi gagal
-        if ($validasi->fails()) {
-            return redirect()->route('admin_matkul')->with(Session::flash('kosong_tambah', true));
-        }
-
-        $siswa = subjectModel::create([
-            'subject_name' => $request->mata_pelajaran,
-        ]);
-        if ($siswa) {
-            return redirect()->route('admin_matkul')->with(Session::flash('berhasil_tambah', true));
-        }
-    }
-    public function editabsen(Request $request , $id){
-        $siswa = subjectModel::findorFAil($id);
-
-        $siswa->subject_name = $request->mata_pelajaran;
-
-        $siswa->save();
-
-        return redirect()->route('admin_matkul')->with(Session::flash('berhasil_edit', true));
-    }
-    public function hapusabsen(Request $request , $id){
-        $siswa = subjectModel::findorFAil($id);
-
-        $siswa->delete();
-
-        return redirect()->route('admin_matkul')->with(Session::flash('berhasil_hapus', true));
-    }
 }

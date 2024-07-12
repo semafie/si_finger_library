@@ -71,7 +71,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
         }
         .imagebg{
-            position: absolute;
+            position: fixed;
             width: 100%;
             height: 100vh;
             opacity: 25%;

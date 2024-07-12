@@ -46,11 +46,15 @@ class AdminController extends Controller
         ]);
     }
     public function show_absensi(){
-        $matkul = subjectModel::all();
+        $mapel = subjectModel::all();
+        $guru = teacherModel::all();
+        $siswa = studentModel::all();
         $absensi = presensiModel::with('siswa')->get();
         return view('admin.layout.Absensi',[
             'title' => 'Data Absensi',
-            'matkul' => $matkul,
+            'mapel' => $mapel,
+            'guru' => $guru,
+            'siswa' => $siswa,
             'getRecord' => User::find(Auth::user()->id),
             'absensi' => $absensi,
         ]);

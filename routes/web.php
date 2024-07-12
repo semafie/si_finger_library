@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\absensiController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\studentController;
@@ -49,9 +50,9 @@ Route::prefix('admin')->group(function(){
     });
     Route::prefix('absensi')->group(function(){
         Route::get('/',[AdminController::class,'show_absensi'])->name('admin_absensi');
-        Route::post('/tambah',[SubjectController::class,'tambah']);
-        Route::put('/edit/{id}',[SubjectController::class,'edit']);
-        Route::delete('/hapus/{id}',[SubjectController::class,'hapus']);
+        Route::post('/tambah',[absensiController::class,'tambah']);
+        Route::put('/edit/{id}',[absensiController::class,'edit']);
+        Route::delete('/hapus/{id}',[absensiController::class,'hapus']);
     });
     
 
