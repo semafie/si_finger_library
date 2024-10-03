@@ -88,12 +88,18 @@
 </head>
 <body>
     <img class="imagebg" src="{{ asset('image/image_bg.jpg') }}" alt="">
-    <a href="/login" style="position: absolute; left: 9px; top:9px;"><button class="learn-more haloss">
-        <span class="circle" aria-hidden="true">
-        <span class="icon arrow"></span>
-        </span>
-        <span class="button-text">Login</span>
-      </button></a>
+    <div >
+        <a href="/login" style="position: absolute; left: 9px; top:9px;"><button class="learn-more haloss">
+            <span class="circle" aria-hidden="true">
+            <span class="icon arrow"></span>
+            </span>
+            <span class="button-text">Login</span>
+          </button></a>
+          <div style="position: absolute; right: 9px; top:9px;">
+            <img style="height: 70px" src="{{ asset('image/logoperpus.png') }}" alt="">
+            <img style="height: 70px" src="{{ asset('image/logoman.png') }}" alt="">
+          </div>
+    </div>
     <div class="container" >
         <p>"Silakan masukkan NISN Anda atau gunakan scanner sidik jari <br>untuk verifikasi."</p>
         <div style="display: flex; justify-content: center; align-items: center; text-align: center; width: 100%;">

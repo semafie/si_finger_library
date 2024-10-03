@@ -2,7 +2,14 @@
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card px-4 py-2 ">
+      <div class="d-flex justify-content-between">
         <a><button type="submit" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#tambahguru">Tambah Data Absensi</button></a>
+        <div>
+          <a><button type="submit" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#Excel">Cetak Excel</button></a>
+          <button type="submit" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#PDF">Cetak PDF</button>
+        </div>
+      </div>
+        
               <div class="text-nowrap table-responsive pt-0">
                 <table id="myTable" class="datatables-basic table border-top">
                   <thead>
@@ -26,9 +33,14 @@
                         <td>{{ $item->jam_keluar }}</td>
                         <td>{{ $item->keterangan }}</td>
                             <td class="button_intable d-flex gap-2">
-                                <button type="submit" class="btn btn-warning" data-bs-toggle="modal"
-                                    data-bs-target="#editguru{{ $item->id }}">Edit</button>
-                                <form action="/admin/guru/hapus/{{ $item->id }}" method="POST">
+                              @if( $item->jam_keluar == null)
+                              <form action="/admin/absensi/edit/{{ $item->id }}" method="POST">
+                                @csrf
+                                @method('put')
+                                <button type="submit" class="btn btn-success">absen keluar</button>
+                                  </form>
+                                  @endif
+                                <form action="/admin/absensi/hapus/{{ $item->id }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger">Hapus</button>
@@ -42,6 +54,42 @@
               </div>
 
     </div>
+</div>
+<div class="modal fade" id="Excel" aria-labelledby="modalToggleLabel" tabindex="-1" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalToggleLabel">Pilih Opsi Excel</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <a href="/admin/absensi/excel1"><button class="btn btn-primary" data-bs-target="#modalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Hari ini</button></a>
+        <a href="/admin/absensi/excel2"><button class="btn btn-primary" data-bs-target="#modalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Bulan ini</button></a>
+        <a href="/admin/absensi/excel3"><button class="btn btn-primary" data-bs-target="#modalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Tahun ini</button></a>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="PDF" aria-labelledby="modalToggleLabel" tabindex="-1" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalToggleLabel">Pilih Opsi PDF</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <a href="/admin/absensi/pdf1"><button class="btn btn-primary" data-bs-target="#modalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Hari ini</button></a>
+        <a href="/admin/absensi/pdf2"><button class="btn btn-primary" data-bs-target="#modalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Bulan ini</button></a>
+        <a href="/admin/absensi/pdf3"><button class="btn btn-primary" data-bs-target="#modalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Tahun ini</button></a>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
 </div>
 
 {{-- <div class="modal fade" id="tambahguru" aria-labelledby="modalToggleLabel" tabindex="-1" style="display: none;" aria-hidden="true">
@@ -355,4 +403,48 @@
         }
     });
 </script>
+
+<script>
+  @if(Session::has('kosong_tambah'))
+
+  Swal.fire({
+    title: 'Berhasil',
+    text: 'Data tidak boleh kosong',
+    icon: 'error',
+    confirmButtonText: 'Oke'
+  })
+  @elseif(Session::has('berhasil_tambah'))
+
+  Swal.fire({
+    title: 'Berhasil',
+    text: 'Data Berhasil ditambahkan',
+    icon: 'success',
+    confirmButtonText: 'Oke'
+  })
+  @elseif(Session::has('sudah_ada'))
+
+  Swal.fire({
+    title: 'Gagal',
+    text: 'absen murid ini sudah ada hari ini',
+    icon: 'error',
+    confirmButtonText: 'Oke'
+  })
+  @elseif(Session::has('berhasil_edit'))
+
+  Swal.fire({
+    title: 'Berhasil',
+    text: 'Data Berhasil diedit',
+    icon: 'success',
+    confirmButtonText: 'Oke'
+  })
+  @elseif(Session::has('berhasil_hapus'))
+
+  Swal.fire({
+    title: 'Berhasil',
+    text: 'Data Berhasil dihapus',
+    icon: 'success',
+    confirmButtonText: 'Oke'
+  })
+  @endif
+  </script>
 @endsection

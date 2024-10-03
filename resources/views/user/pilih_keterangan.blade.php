@@ -79,6 +79,10 @@
     </style>
 </head>
 <body>
+    <div style="position: absolute; right: 9px; top:9px;">
+        <img style="height: 70px" src="{{ asset('image/logoperpus.png') }}" alt="">
+        <img style="height: 70px" src="{{ asset('image/logoman.png') }}" alt="">
+      </div>
     <img class="imagebg" src="{{ asset('image/image_bg.jpg') }}" alt="">
         <p>Selamat datang 
             @if( $siswa->gender == 'Laki - Laki' )
